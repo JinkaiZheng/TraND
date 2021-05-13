@@ -94,3 +94,8 @@ Please cite this paper in your publications if it helps your research:
   year      = {2021}
 }
 ```
+
+
+## Acknowledgement
+- [GaitSet](https://github.com/AbnerHqC/GaitSet)
+- [AND](https://github.com/Raymond-sci/AND)
