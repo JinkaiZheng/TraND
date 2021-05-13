@@ -8,24 +8,15 @@
 '''
 
 import argparse
-import time
 
 def parser_argument():
     parser = argparse.ArgumentParser()
-    # timestamp
-    # stt = time.strftime('%Y%m%d-%H%M%S', time.gmtime())
-    # tt = int(time.time())
-    # dataset to be used
     parser.add_argument('--cfgs', type=str, nargs='*',
                             help='config files to load')
 
     # lr policy to be used
     parser.add_argument('--lr-policy', default='step', type=str,
                      help='lr policy to be used. (default: step)')
-
-    # args for protocol
-    # parser.add_argument('--protocol', default='knn', type=str,
-    #                  help='protocol used to validate model')
 
     # args for network training
     parser.add_argument('--max-epoch', default=300, type=int,

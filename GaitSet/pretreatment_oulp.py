@@ -3,7 +3,7 @@
 # @Time    : 2018/12/19
 
 import os
-#from scipy import misc as scisc
+import os.path as osp
 import imageio
 import cv2
 import numpy as np
@@ -27,9 +27,9 @@ def boolean_string(s):
 
 
 parser = argparse.ArgumentParser(description='Test')
-parser.add_argument('--input_path', default='/home/liuxinchen3/notespace/data/OU-LP/OULP-C1V1_Pack/OULP-C1V1_NormalizedSilhouette', type=str,
+parser.add_argument('--input_path', default='', type=str,
                     help='Root path of raw dataset.')
-parser.add_argument('--output_path', default='/home/liuxinchen3/notespace/data/OU-LP/OULP-C1V1', type=str,
+parser.add_argument('--output_path', default='./data/OULP', type=str,
                     help='Root path for output.')
 parser.add_argument('--log_file', default='./pretreatment_oulp.log', type=str,
                     help='Log file path. Default: ./pretreatment_oulp.log')
@@ -39,10 +39,10 @@ parser.add_argument('--log', default=False, type=boolean_string,
                          'Default: False')
 parser.add_argument('--worker_num', default=20, type=int,
                     help='How many subprocesses to use for data pretreatment. '
-                         'Default: 1')
+                         'Default: 20')
 opt = parser.parse_args()
 
-INPUT_PATH = opt.input_path
+INPUT_PATH = osp.join(opt.input_path, "OULP-C1V1_NormalizedSilhouette")
 OUTPUT_PATH = opt.output_path
 IF_LOG = opt.log
 LOG_PATH = opt.log_file
@@ -122,8 +122,6 @@ def cut_pickle(seq_info, seq_info_origin, pid, _first_frame, _last_frame):
     log_print(pid, START, seq_name)
     seq_path = os.path.join(INPUT_PATH, *seq_info_origin)
     out_dir = os.path.join(OUTPUT_PATH, *seq_info)
-#     frame_list = os.listdir(seq_path)
-#     frame_list.sort()
     count_frame = 0
     for _frame_name in range(int(_first_frame), int(_last_frame)+1):
         _frame_name = str(_frame_name).zfill(8) + '.png'
@@ -134,7 +132,6 @@ def cut_pickle(seq_info, seq_info_origin, pid, _first_frame, _last_frame):
             img = cut_img(img, seq_info, _frame_name, pid)
             # Save the cut img
             save_path = os.path.join(out_dir, _frame_name)
-            #scisc.imsave(save_path, img)
             if os.path.exists(save_path):
                 print(f'File : {save_path} exists.')
                 count_frame += 1
@@ -166,20 +163,18 @@ print('Pretreatment Start.\n'
       'Worker num: %d' % (
           INPUT_PATH, OUTPUT_PATH, LOG_PATH, WORKERS))
 
-IDList_dir = '/home/liuxinchen3/notespace/data/OU-LP/OULP-C1V1_Pack/OULP-C1V1_SubjectIDList(FormatVersion1.0)'
+IDList_dir = osp.join(opt.input_path, "OULP-C1V1_SubjectIDList(FormatVersion1.0)")
 IDLists_g = [
     'IDList_OULP-C1V1-A-55_Gallery.csv',
     'IDList_OULP-C1V1-A-65_Gallery.csv',
     'IDList_OULP-C1V1-A-75_Gallery.csv',
     'IDList_OULP-C1V1-A-85_Gallery.csv',
-#    'IDList_OULP-C1V1-A-All_Gallery.csv'
 ]
 IDLists_p = [
     'IDList_OULP-C1V1-A-55_Probe.csv',
     'IDList_OULP-C1V1-A-65_Probe.csv',
     'IDList_OULP-C1V1-A-75_Probe.csv',
     'IDList_OULP-C1V1-A-85_Probe.csv',
-#    'IDList_OULP-C1V1-A-All_Probe.csv'
 ]
 
 _seq_type = 'Seq00'

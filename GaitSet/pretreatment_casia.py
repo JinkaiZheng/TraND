@@ -3,7 +3,6 @@
 # @Time    : 2018/12/19
 
 import os
-#from scipy import misc as scisc
 import imageio
 import cv2
 import numpy as np
@@ -29,7 +28,7 @@ def boolean_string(s):
 parser = argparse.ArgumentParser(description='Test')
 parser.add_argument('--input_path', default='', type=str,
                     help='Root path of raw dataset.')
-parser.add_argument('--output_path', default='', type=str,
+parser.add_argument('--output_path', default='./data/CASIA-B', type=str,
                     help='Root path for output.')
 parser.add_argument('--log_file', default='./pretreatment_casia.log', type=str,
                     help='Log file path. Default: ./pretreatment_casia.log')
@@ -39,7 +38,7 @@ parser.add_argument('--log', default=False, type=boolean_string,
                          'Default: False')
 parser.add_argument('--worker_num', default=20, type=int,
                     help='How many subprocesses to use for data pretreatment. '
-                         'Default: 1')
+                         'Default: 20')
 opt = parser.parse_args()
 
 INPUT_PATH = opt.input_path

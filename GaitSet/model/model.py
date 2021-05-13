@@ -186,7 +186,6 @@ class Model:
                 _time1 = datetime.now()
 
             if self.restore_iter % 100 == 0:
-                self.save()
                 print('iter {}:'.format(self.restore_iter), end='')
                 print(', hard_loss_metric={0:.8f}'.format(np.mean(self.hard_loss_metric)), end='')
                 print(', full_loss_metric={0:.8f}'.format(np.mean(self.full_loss_metric)), end='')
@@ -200,6 +199,9 @@ class Model:
                 self.full_loss_metric = []
                 self.full_loss_num = []
                 self.dist_list = []
+
+            if self.restore_iter % 10000 == 0:
+                self.save()
 
             if self.restore_iter == self.total_iter:
                 break

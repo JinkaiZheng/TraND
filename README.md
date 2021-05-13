@@ -4,8 +4,23 @@ Unsupervised Cross-domain Gait Recognition](https://ieeexplore.ieee.org/stamp/st
 
 
 ## Requirements
+- Conda
+- GPUs
 - Python 3.7
 - PyTorch 1.1.0
+
+### Installation
+You can replace the second command from the bottom to install
+[pytorch](https://pytorch.org/get-started/previous-versions/#v110) 
+based on your CUDA version.
+```
+git clone https://github.com/JinkaiZheng/TraND.git
+cd TraND
+conda create --name py37torch110 python=3.7
+conda activate py37torch110
+conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=10.0 -c pytorch
+pip install -r requirements
+```
 
 
 ## Data Preparation
@@ -16,7 +31,7 @@ Download [CASIA-B](http://www.cbsr.ia.ac.cn/english/Gait%20Databases.asp) and [O
 [this paper](https://ipsjcva.springeropen.com/articles/10.1186/s41074-018-0039-6).
 In the case of CASIA-B dataset, you need to run the command:
 ```
-python pretreatment_casia.py --input_path='root_path_of_raw_dataset' --output_path='./data/CASIA-B'
+python GaitSet/pretreatment_casia.py --input_path='root_path_of_raw_dataset' --output_path='./data/CASIA-B'
 ```
 
 ### Data Structrue
@@ -41,7 +56,7 @@ After the pretreatment, the data structure under the directory should like this
 
 Training the GaitSet model in the source domain, run this command:
 ```bash
- python GaitSet/train.py --dataset-name "casia-b"
+ python GaitSet/train.py --data "casia-b"
 ```
 ### Stage II: Transferable Neighbor Discovery on Target Domain
 
@@ -54,7 +69,7 @@ sh Experement.sh
 ## Test
 Testing the model in self domain, such as CASIA-B dataset, run this command:
 ```
-python GaitSet/test.py --source "casia-b" --target "oulp"
+python GaitSet/test.py --data "casia-b"
 ```
 Testing the model in cross domain, such as CASIA-B -> OU-LP dataset, run this command:
 ```
@@ -76,6 +91,6 @@ Please cite this paper in your publications if it helps your research:
   title     = {TraND: Transferable Neighborhood Discovery for Unsupervised Cross-domain
                Gait Recognition},
   journal   = {ISCAS},
-  year      = {2021},
+  year      = {2021}
 }
 ```

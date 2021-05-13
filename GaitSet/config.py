@@ -2,13 +2,13 @@ conf_CASIA = {
     "WORK_PATH": "./outputs/CASIA-B_SetNet_OU",
     "CUDA_VISIBLE_DEVICES": "0,1,2,3",
     "data": {
-        'dataset_path': "/home/zhengjinkai/datasets/CASIA-B/GaitDatasetB-pretreatmented",
+        'dataset_path': "./data/CASIA-B",
         'resolution': '64',
         'dataset': 'CASIA-B',
         # In CASIA-B, data of subject #5 is incomplete.
         # Thus, we ignore it in training.
         # For more detail, please refer to
-        # function: utils.data_loader.load_data
+        # function: GaitSet.model.utils.data_loader.load_data
         'pid_num': 73,
         'pid_shuffle': False,
     },
@@ -30,11 +30,11 @@ conf_OULP = {
     "WORK_PATH": "./outputs/OULP_SetNet_OU",
     "CUDA_VISIBLE_DEVICES": "0,1,2,3",
     "data": {
-        'dataset_path': "/export/home/data/Gait/OULP-C1V1",
+        'dataset_path': "./data/OULP",
         'resolution': '64',
         'dataset': 'OU-LP',
         # For more detail, please refer to
-        # function: utils.data_loader.load_data
+        # function: GaitSet.model.utils.data_loader.load_data
         'pid_num': 3836,
         'pid_shuffle': False,
     },

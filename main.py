@@ -78,6 +78,7 @@ def main():
         model_config['hard_or_full_trip'],
         model_config['frame_num'],
     ]))
+    os.chdir(WORK_PATH)
 
     if cfg.target == "casia-b":
         config = conf_CASIA
@@ -159,7 +160,7 @@ def main():
                 if np.mean(acc[0, :, :, 0]) > best_acc:
                     best_acc = np.mean(acc[0, :, :, 0])
                     log.info('Saving the best model and optimizer...')
-                    save(net, optimizer, best_model_dir)
+                    save(net, optimizer, best_model_dir, WORK_PATH)
 
             epoch += 1
         round += 1
@@ -192,7 +193,6 @@ def acc_vis(acc):
         np.set_printoptions(precision=2, floatmode='fixed')
         for i in range(1):
             log.info('===Rank-%d of each angle (Exclude identical-view cases)===' % (i + 1))
-            # log.info('NM: %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f', (for x in de_diag(acc[0, :, :, i], True)))
             log.info('NM: %s', str(de_diag(acc[0, :, :, i], True)))
             log.info('BG: %s', str(de_diag(acc[1, :, :, i], True)))
             log.info('CL: %s', str(de_diag(acc[2, :, :, i], True)))
@@ -302,17 +302,22 @@ def gait_transform(net, testloader):
 
     return np.concatenate(feature_list, 0), view_list, seq_type_list, label_list
 
-def save(net, optimizer, best_model_dir):
+def save(net, optimizer, best_model_dir, WORK_PATH):
+    if not osp.exists(best_model_dir): os.makedirs(best_model_dir, exist_ok=True)
+    os.chdir("../../")
     torch.save(net.state_dict(), osp.join(best_model_dir, 'best_encoder.ptm'))
     torch.save(optimizer.state_dict(), osp.join(best_model_dir, 'best_optimizer.ptm'))
+    os.chdir(WORK_PATH)
 
 def load(net, optimizer, WORK_PATH, model_name, save_name, restore_iter):
+    os.chdir("../../")
     net.load_state_dict(torch.load(osp.join(
         WORK_PATH, 'checkpoint', model_name,
         '{}-{:0>5}-encoder.ptm'.format(save_name, restore_iter))))
     optimizer.load_state_dict(torch.load(osp.join(
         WORK_PATH, 'checkpoint', model_name,
         '{}-{:0>5}-optimizer.ptm'.format(save_name, restore_iter))))
+    os.chdir(WORK_PATH)
 
 # Exclude identical-view cases
 def de_diag(acc, each_angle=False):
