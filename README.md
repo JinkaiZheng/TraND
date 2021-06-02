@@ -62,7 +62,7 @@ Training the GaitSet model in the source domain, run this command:
 
 Fine-tuning the GaitSet model in the target domain with TraND method, run this command:
 ```bash
-sh Experement.sh
+sh Experiment.sh
 ```
 
 
