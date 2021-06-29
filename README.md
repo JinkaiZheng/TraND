@@ -1,6 +1,6 @@
 # TraND
 This is the code for the paper "Jinkai Zheng, Xinchen Liu, Chenggang Yan, Jiyong Zhang, Wu Liu, Xiaoping Zhang and Tao Mei: [TraND: Transferable Neighborhood Discovery for
-Unsupervised Cross-domain Gait Recognition](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9401218). ISCAS 2021" (**Best Paper Award - Honorable Mention**)
+Unsupervised Cross-domain Gait Recognition](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9401218). ISCAS 2021" (MSA-TC “**Best Paper Award - Honorable Mention**”)
 
 
 ## Requirements
