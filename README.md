@@ -58,13 +58,15 @@ Training the GaitSet model in the source domain, run this command:
 ```bash
  python GaitSet/train.py --data "casia-b"
 ```
+Our models: [CASIA_best_model](https://github.com/JinkaiZheng/TraND/releases/download/V0.1/CASIA_best_encoder.ptm) and [OULP_best_model](https://github.com/JinkaiZheng/TraND/releases/download/V0.1/OULP_best_encoder.ptm)
+
 ### Stage II: Transferable Neighbor Discovery on Target Domain
 
 Fine-tuning the GaitSet model in the target domain with TraND method, run this command:
 ```bash
 sh Experiment.sh
 ```
-
+Our models: [CASIA2OULP_best_model](https://github.com/JinkaiZheng/TraND/releases/download/V0.1/CASIA2OULP_best_encoder.ptm) and [OULP2CASIA_best_model](https://github.com/JinkaiZheng/TraND/releases/download/V0.1/OULP2CASIA_best_encoder.ptm)
 
 ## Test
 Testing the model in self domain, such as CASIA-B dataset, run this command:
