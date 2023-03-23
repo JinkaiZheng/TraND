@@ -78,6 +78,12 @@ Testing the model in cross domain, such as CASIA-B -> OU-LP dataset, run this co
 python GaitSet/test_cross.py --source "casia-b" --target "oulp"
 ```
 
+## Cross domain generation models
+### 1. Cross virtual-to-real human style
+Download the model at [here](http://box.jd.com/sharedInfo/83FD97D8D9B5778EEEC946AFBC5707A7) (code: 6vd1h8).
+### 2. Cross indoor-to-outdoor human walking style
+Download the model at [here](http://box.jd.com/sharedInfo/380AEEBA30B7D991EEC946AFBC5707A7) (code: 3pgcwl).
+
 
 ## Citation
 Please cite this paper in your publications if it helps your research:
