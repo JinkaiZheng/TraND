@@ -79,11 +79,14 @@ python GaitSet/test_cross.py --source "casia-b" --target "oulp"
 ```
 
 ## Cross domain generation models
-### 1. Cross virtual-to-real human style
+### 1. Cross virtual-to-real human style based on diffusion model
 Download the model at [here](http://box.jd.com/sharedInfo/83FD97D8D9B5778EEEC946AFBC5707A7) (code: 6vd1h8).
-### 2. Cross indoor-to-outdoor human walking style
+### 2. Cross indoor-to-outdoor human walking style based on diffusion model
 Download the model at [here](http://box.jd.com/sharedInfo/380AEEBA30B7D991EEC946AFBC5707A7) (code: 3pgcwl).
-
+### 3. Generation model of dynamic human body based on human nerf
+Download the model at [here](http://pan.jd.com/sharedInfo/F9F8D0C87543F028EEC946AFBC5707A7) (code: f4c71h).
+### 4. Generation model of moving human body based on neural body 
+Download the model at [here](http://pan.jd.com/sharedInfo/33EAD60938A6BF41EEC946AFBC5707A7) (code: 9qbd5t).
 
 ## Citation
 Please cite this paper in your publications if it helps your research:
