@@ -84,9 +84,9 @@ Download the model at [here](http://box.jd.com/sharedInfo/83FD97D8D9B5778EEEC946
 ### 2. Cross indoor-to-outdoor human walking style based on diffusion model
 Download the model at [here](http://box.jd.com/sharedInfo/380AEEBA30B7D991EEC946AFBC5707A7) (code: 3pgcwl).
 ### 3. Generation model of dynamic human body based on human nerf
-Download the model at [here](http://pan.jd.com/sharedInfo/F9F8D0C87543F028EEC946AFBC5707A7) (code: f4c71h).
+Download the model at [here](http://box.jd.com/sharedInfo/4B7B95A58DCAC55AEEC946AFBC5707A7) (code: mdz1b1).
 ### 4. Generation model of moving human body based on neural body 
-Download the model at [here](http://pan.jd.com/sharedInfo/33EAD60938A6BF41EEC946AFBC5707A7) (code: 9qbd5t).
+Download the model at [here](http://box.jd.com/sharedInfo/4C260AB93A3CDFBBEEC946AFBC5707A7) (code: mzwywh).
 
 ## Citation
 Please cite this paper in your publications if it helps your research:
